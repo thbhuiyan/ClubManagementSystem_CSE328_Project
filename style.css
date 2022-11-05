@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Home Page Starts*/
+
+
+#homeContainer {
+    background-image: url(images/home-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Nav Starts*/
+.navbar {
+    width: 100%;
+    background-color: #0F252E;
+    overflow: hidden;
+    border-bottom: 4px solid #45C7EE;
+}
+
+.navLinks {
+    float: right;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navLinks:hover {
+    background-color: #45C7EE;
+}
+
+.navbar p a {
+    float: left;
+    font-weight: bold;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+.active {
+    background-color: #45C7EE;
+}
+
+
+/* Nav Ends*/
+
+.imgClub {
+    width: 100%;
+    margin: auto;
+}
+
+.imgClub img {
+    margin-bottom: 30px;
+}
+
+#container {
+    /* border: 2px solid #00C9F0; */
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+    margin-top: 160px;
+}
+
+
+.top {
+    text-align: center;
+}
+
+.mainHeading {
+    font-size: xx-large;
+    text-transform: uppercase;
+}
+
+.btnContainer {
+    display: flex;
+}
+
+.buttons button {
+    background-color: #0F252E;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 350px;
+    margin: 10px;
+    font-weight: bold;
+    border: 1px solid #0F252E;
+}
+
+button:hover {
+    background-color: #00C9F0;
+    color: white;
+    border: 1px solid #00C9F0;
+    transition-delay: 0.1s;
+}
+
+/* Home Page Ends*/
+
+/* Signup Page Starts*/
+
+#signUpPage {
+    background-image: url(images/background.png);
+    height: 113vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.noAccount {
+    float: right;
+}
+
+.noAccount a {
+    color: #96DCE0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.noAccount a:hover {
+    color: #00476F;
+    text-decoration: underline;
+}
+
+/* Signup Page Ends*/
+
+/* Login Page  */
+#loginPage {
+    background-image: url(images/background.png);
+    height: 100vh;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.avatar {
+    width: 40%;
+}
+
+.loginContainer {
+    width: 25%;
+    /* border: 2px solid #eee; */
+    padding: 20px;
+    margin: auto;
+    background-color: white;
+
+}
+
+input[type=text],
+[type=email],
+input[type=password],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.btnLogin {
+    background-color: #96DCE0;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    border: 1px solid #96DCE0;
+}
+
+.btnLogin:hover {
+    background-color: #00476F;
+    color: white;
+    transition-delay: 0.1s;
+}
