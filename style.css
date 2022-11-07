@@ -19,7 +19,7 @@ body {
 }
 
 /* Nav Starts*/
-.navbar {
+.navBar {
     width: 100%;
     background-color: #0F252E;
     overflow: hidden;
@@ -38,19 +38,6 @@ body {
     background-color: #45C7EE;
 }
 
-.navbar p a {
-    float: left;
-    font-weight: bold;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-
-.active {
-    background-color: #45C7EE;
-}
 
 
 /* Nav Ends*/
@@ -112,7 +99,7 @@ button:hover {
 
 #signUpPage {
     background-image: url(images/background.png);
-    height: 113vh;
+    height: 140vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
