@@ -11,12 +11,11 @@
 </head>
 
 <body>
-<section id="homeContainer">
-<?php
-    require 'db/_nav.php';
+    <section id="homeContainer">
+        <?php
+        require 'db/_nav.php';
 
-?>
-
+        ?>
 
         <div id="container">
             <!-- Main container Starts -->
@@ -38,8 +37,6 @@
             </div>
             <!-- Main container Ends -->
         </div>
-
-
 
     </section>
 </body>

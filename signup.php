@@ -1,8 +1,7 @@
-<?php 
-
+<?php
 $showAlert = false;
 $showError = "";
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     include 'db/_dbConnect.php';
     $club = $_POST["club"];
     $username = $_POST["fullName"];
@@ -11,30 +10,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $password = $_POST["upass"];
     $cpassword = $_POST["cpass"];
 
-//check whether the user id exist or not?
-$existSql = "SELECT * FROM users7 where uid = '$uid'";
-$fireq = mysqli_query($connect, $existSql);
+    //check whether the user id exist or not?
+    $existSql = "SELECT * FROM users7 where uid = '$uid'";
+    $fireq = mysqli_query($connect, $existSql);
 
-$numExistRows = mysqli_num_rows($fireq);
-        if($numExistRows > 0){
-                $showError = "User ID already exists, try loggin in!";
-                 header("location:login.php");
-            }
+    $numExistRows = mysqli_num_rows($fireq);
+    if ($numExistRows > 0) {
+        $showError = "User ID already exists, try loggin in!";
+        header("location:login.php");
+    } else if ($password == $cpassword) {
+        $hashingPass = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `users7` (`uclub`,`username`, `uid`,`udept`,`upassword`, `date`) VALUES ('$club','$username','$uid', '$dept', '$hashingPass', current_timestamp())";
 
-        else if($password == $cpassword){
-            $hashingPass = password_hash($password, PASSWORD_DEFAULT);
-                    $sql = "INSERT INTO `users7` (`uclub`,`username`, `uid`,`udept`,`upassword`, `date`) VALUES ('$club','$username','$uid', '$dept', '$hashingPass', current_timestamp())";
-
-                    $fireq = mysqli_query($connect, $sql);
-                        if($fireq){
-                            $showAlert = true;
-                            header("location:login.php");
-                        }
-                }
-        else $showError = "Password doesn't match, try again carefully!";
-    }
+        $fireq = mysqli_query($connect, $sql);
+        if ($fireq) {
+            $showAlert = true;
+            header("location:login.php");
+        }
+    } else $showError = "Password doesn't match, try again carefully!";
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +39,15 @@ $numExistRows = mysqli_num_rows($fireq);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Sign Up</title>
 </head>
 
 <body>
 
-<?php
+    <?php
     require 'db/_nav.php';
     if ($showAlert) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -63,19 +59,13 @@ $numExistRows = mysqli_num_rows($fireq);
     }
     if ($showError) {
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> '.$showError.'
+        <strong>Error!</strong> ' . $showError . '
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>';
     }
-?>
-
-
-
-    
-
-
+    ?>
 
     <section id="signUpPage">
         <!-- SignUP Form -->
@@ -110,14 +100,14 @@ $numExistRows = mysqli_num_rows($fireq);
                     <option value="EEE">EEE</option>
                 </select>
                 <label for="gender"><b>Gender:</b></label>
-    
+
                 <input type="radio" id="Male" name="gender" value="male">
                 <label for="Male">Male</label>
-    
+
                 <input type="radio" id="Female" name="gender" value="female">
                 <label for="Female">Female</label>
-    
-    
+
+
                 <!-- <label for="psw"><b>Password</b></label> -->
                 <input type="password" placeholder="Enter Password" required name="password">
                 <input type="password" placeholder="Re-enter Password" required name="cpassword">
@@ -132,9 +122,15 @@ $numExistRows = mysqli_num_rows($fireq);
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
