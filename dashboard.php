@@ -4,6 +4,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     header("location: login.php");
     exit;
 }
+include 'db/_dbConnect.php';
 ?>
 
 <!doctype html>
@@ -23,21 +24,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 </head>
 
 <body>
-
+    <!-- Navigation starts here -->
     <?php
     require 'db/_nav.php';
     ?>
+    <!-- Navigation ends here -->
 
-    <div class="container-fluid my-2">
-        <div class="alert alert-success  fluid" role="alert">
-            <h4 class="alert-heading">Well done!</h4>
+
+    <!-- Clubs general message starts here -->
+    <div class="container-fluid" style="margin:0px ; padding:0px;">
+        <div class="alert alert-success" role="alert" ">
+            <h4 class=" alert-heading">Well done!</h4>
             <p>
             <h1>Hey! Welcome to the CMS dashboard</h1>
             </p>
-            <hr>
-            <p class="mb-0">Whenever you need to, be sure to <a href="logout.php"> log-out using this link</a>.</p>
         </div>
     </div>
+    <!-- Clubs general message ends here -->
+
 
     <!-- SLIDER starts here -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -67,27 +71,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
         </a>
     </div>
 
-
-
-    <!-- Category container starts here -->
+    <!-- Clubs starts here -->
     <div class="container my-4">
-        <h2 class="text-center">techTalk - browse categories!</h2>
-
+        <h2 class="text-center">Browse Through the Clubs...</h2>
         <div class="row">
-            <!-- //Using a for loop to iterate through categories -->
-            <!-- fetch all categories -->
+
+            <!-- fetch all clubs -->
+
             <?php
-            $sql = "SELECT * FROM `categories`";
-            $fireq = mysqli_query($con, $sql);
+            $sql = "SELECT * FROM `clubs`";
+
+            $fireq = mysqli_query($connect, $sql);
+            //Using a loop here to iterate through clubs 
             while ($row = mysqli_fetch_assoc($fireq)) {
                 echo '<div class="col-md-4">
                             <div class="card my-2" style="width: 18rem;">
                                 <!-- https://source.unsplash.com/360x360/?nature,water -->
-                                <img src="https://source.unsplash.com/720x480/?code,' . $row['category_name'] . '" class="card-img-top" alt="...">
+                                <img src="https://source.unsplash.com/720x480/?club,' . $row['club_name'] . '" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">' . $row['category_name'] . '</h5>
-                                    <p class="card-text" maxlength="30">' . substr($row['category_description'], 0, 40) . '...</p>
-                                    <a href="#" class="btn btn-success">Explore the threads</a>
+                                    <h5 class="card-title">' . $row['club_name'] . '</h5>
+                                    <p class="card-text" maxlength="30">' . substr($row['club_about'], 0, 40) . '...</p>
+                                    <a href="#" class="btn btn-success">Explore the club</a>
                                 </div>
                             </div>
                         </div>
@@ -96,9 +100,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
             ?>
         </div>
     </div>
+    <!-- Clubs ends here -->
 
-
-
+    <!-- Clubs general message starts here -->
+    <div class="container-fluid text-center" style="margin:0px ; padding:0px;">
+        <div class="alert alert-success" role="alert">
+            <p class="mb-0">Whenever you need to, be sure to <a href="logout.php"> log-out using this link</a>.</p>
+        </div>
+    </div>
+    <!-- Clubs general message ends here -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
