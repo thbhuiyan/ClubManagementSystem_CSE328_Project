@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $userid = $_POST["uid"];
     $password = $_POST["upass"];
 
+    // $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
+
     $sql = "SELECT * FROM users7 Where uid = '$userid' ";
     $fireq = mysqli_query($connect, $sql);
     $num = mysqli_num_rows($fireq);

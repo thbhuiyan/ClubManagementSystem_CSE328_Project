@@ -18,8 +18,6 @@ include 'db/_dbConnect.php';
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-
     <script src="https://kit.fontawesome.com/64cc2e590f.js" crossorigin="anonymous"></script>
 </head>
 
@@ -34,17 +32,29 @@ include 'db/_dbConnect.php';
     <!-- Clubs general message starts here -->
     <div class="container-fluid" style="margin:0px ; padding:0px;">
         <div class="alert alert-success" role="alert" ">
-            <h4 class=" alert-heading">Well done!</h4>
-            <p>
-            <h1>Hey! Welcome to the CMS dashboard</h1>
-            </p>
+        <h4 class=" alert-heading">Well done!</h4>
+            <?php
+
+            $i = 1;
+            $sql = "SELECT * FROM users7";
+            $fireq = mysqli_query($connect, $sql);
+            // $num = mysqli_num_rows($fireq);
+            // if ($num == 1) {
+            //Using a loop here to iterate through clubs 
+            while (($row = mysqli_fetch_assoc($fireq)) && $i == 1) {
+                echo '<p><h1>Hey ' . strtoupper($row['username']) . ', welcome to your CMS dashboard!</h1></p>';
+                // 
+                $i++; // }
+            }
+            ?>
+
         </div>
     </div>
     <!-- Clubs general message ends here -->
 
 
     <!-- SLIDER starts here -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -52,10 +62,10 @@ include 'db/_dbConnect.php';
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://source.unsplash.com/1280x360/?computer,club" class="d-block w-100" alt="tech image">
+                <img src="https://source.unsplash.com/1280x360/?tech,computer" class="d-block w-100" alt="tech image">
             </div>
             <div class="carousel-item">
-                <img src="https://source.unsplash.com/1280x360/?technology,coding" class="d-block w-100" alt="...">
+                <img src="https://source.unsplash.com/1280x360/?technology,sports" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
                 <img src="https://source.unsplash.com/1280x360/?tech,apple." class="d-block w-100" alt="...">

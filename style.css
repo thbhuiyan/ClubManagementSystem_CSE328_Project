@@ -23,7 +23,14 @@ body {
     background-color: #0F252E;
     overflow: hidden;
     border-bottom: 4px solid #45C7EE;
+    padding-top: 8px;
 }
+
+.navIMG {
+    width: 128px;
+    margin-left: 24px
+}
+
 
 .navLinks {
     float: right;
