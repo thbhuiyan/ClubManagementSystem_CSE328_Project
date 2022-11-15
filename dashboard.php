@@ -112,14 +112,6 @@ include 'db/_dbConnect.php';
     </div>
     <!-- Clubs ends here -->
 
-    <!-- Clubs general message starts here -->
-    <div class="container-fluid text-center" style="margin:0px ; padding:0px;">
-        <div class="alert alert-success" role="alert">
-            <p class="mb-0">Whenever you need to, be sure to <a href="logout.php"> log-out using this link</a>.</p>
-        </div>
-    </div>
-    <!-- Clubs general message ends here -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

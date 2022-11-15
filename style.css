@@ -179,3 +179,8 @@ select {
     color: white;
     transition-delay: 0.1s;
 }
+
+/* footer design Ends*/
+.footer {
+    padding: 20px 0px;
+}
