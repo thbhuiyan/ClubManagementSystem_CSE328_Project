@@ -52,9 +52,8 @@ include 'db/_dbConnect.php';
     </div>
     <!-- Clubs general message ends here -->
 
-
     <!-- SLIDER starts here -->
-    <div id=" carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -80,6 +79,8 @@ include 'db/_dbConnect.php';
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- SLIDER ends here -->
+
 
     <!-- Clubs starts here -->
     <div class="container my-4">
