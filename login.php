@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
 
-    $sql = "SELECT * FROM users7 Where uid = '$userid' ";
+    $sql = "SELECT * FROM users7 Where uid = '$userid'";
     $fireq = mysqli_query($connect, $sql);
     $num = mysqli_num_rows($fireq);
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['uid'] = $userid;
-                header('location: dashboard.php');
+                header("location: dashboard.php?uid=$userid");
             }
         }
     } else {

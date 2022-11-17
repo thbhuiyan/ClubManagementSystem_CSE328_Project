@@ -11,14 +11,23 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <script src="https://kit.fontawesome.com/64cc2e590f.js" crossorigin="anonymous"></script>
+    <style>
+    .fotter {
+        min-height: 620px;
+    }
+
+    ul {
+        list-style: none;
+    }
+    </style>
 </head>
 
 <body>
 
     <?php
-	require 'db/_nav.php';
-	?>
-    <div class="container-fluid my-1">
+    require 'db/_nav.php';
+    ?>
+    <div class="container-fluid my-1 fotter">
         <div class="alert alert-success " role="alert">
             <h2 class="alert-heading">Developers' info</h2>
             <hr>

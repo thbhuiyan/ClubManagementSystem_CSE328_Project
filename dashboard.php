@@ -33,18 +33,16 @@ include 'db/_dbConnect.php';
     <div class="container-fluid" style="margin:0px ; padding:0px;">
         <div class="alert alert-success" role="alert" ">
         <h4 class=" alert-heading">Well done!</h4>
-            <?php
 
-            $i = 1;
-            $sql = "SELECT * FROM users7";
+            <?php
+            $id = $_GET['uid'];
+
+            $sql = "SELECT username FROM `users7` WHERE uid = $id";
             $fireq = mysqli_query($connect, $sql);
-            // $num = mysqli_num_rows($fireq);
-            // if ($num == 1) {
-            //Using a loop here to iterate through clubs 
-            while (($row = mysqli_fetch_assoc($fireq)) && $i == 1) {
-                echo '<p><h1>Hey ' . strtoupper($row['username']) . ', welcome to your CMS dashboard!</h1></p>';
-                // 
-                $i++; // }
+
+            while (($row = mysqli_fetch_assoc($fireq))) {
+                $name = $row['username'];
+                echo '<p><h1>Hey ' . strtoupper($name) . ', welcome to your CMS dashboard!</h1></p>';
             }
             ?>
 
@@ -83,7 +81,7 @@ include 'db/_dbConnect.php';
 
 
     <!-- Clubs starts here -->
-    <div class="container my-4">
+    <div class="container my-4" id="club">
         <h2 class="text-center">Browse Through the Clubs...</h2>
         <div class="row">
 
@@ -102,7 +100,7 @@ include 'db/_dbConnect.php';
                                 <div class="card-body">
                                     <h5 class="card-title">' . $row['club_name'] . '</h5>
                                     <p class="card-text" maxlength="30">' . substr($row['club_about'], 0, 40) . '...</p>
-                                    <a href="#" class="btn btn-success">Explore the club</a>
+                                    <a href="club.php" class="btn btn-success">Explore the club</a>
                                 </div>
                             </div>
                         </div>
